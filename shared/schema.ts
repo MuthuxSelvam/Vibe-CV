@@ -109,6 +109,7 @@ export interface ResumeData {
   linkedin?: string;
   github?: string;
   website?: string;
+  instagram?: string;
   avatar?: string;
   summary: {
     default: string;

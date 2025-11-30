@@ -1,29 +1,23 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { usePersona } from "@/context/PersonaContext";
 import { IdentitySelector } from "@/components/IdentitySelector";
-import { Hero } from "@/components/Hero";
+import { Hero as ProfileHero } from "@/components/Hero";
 import { SkillsGrid } from "@/components/SkillsGrid";
 import { MetricsPanel } from "@/components/MetricsPanel";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ProjectsSection } from "@/components/ProjectCard";
 import { FunFactsSection } from "@/components/FunFactsSection";
-import { Certifications } from "@/components/Certifications";
 import { ATSEducationPanel } from "@/components/ATSEducationPanel";
 import { JobMatchPanel } from "@/components/JobMatchPanel";
 import { Footer } from "@/components/Footer";
 import type { Persona } from "@shared/schema";
 
-function RecruiterLayout() {
-  return (
-    <>
-      <MetricsPanel />
-      <SkillsGrid />
-      <ExperienceTimeline />
-      <Certifications />
-      <ProjectsSection />
-    </>
-  );
-}
+// New Landing Page Components
+import { HeroSection } from "@/components/landing/HeroSection";
+import { StorySection } from "@/components/landing/StorySection";
+import { FeaturesSection } from "@/components/landing/FeaturesSection";
+import { SocialProofSection } from "@/components/landing/SocialProofSection";
+import { CTASection } from "@/components/landing/CTASection";
 
 function TechLeadLayout() {
   return (
@@ -32,17 +26,6 @@ function TechLeadLayout() {
       <ProjectsSection />
       <ExperienceTimeline />
       <MetricsPanel />
-    </>
-  );
-}
-
-function FounderLayout() {
-  return (
-    <>
-      <ProjectsSection />
-      <MetricsPanel />
-      <ExperienceTimeline />
-      <SkillsGrid />
     </>
   );
 }
@@ -57,64 +40,42 @@ function VisitorLayout() {
   );
 }
 
+import { ResumePredictorPage } from "@/components/resume-matcher/ResumePredictorPage";
+
 function ResumeMatcherLayout() {
+  return <ResumePredictorPage />;
+}
+
+function LandingPageLayout() {
   return (
     <>
-      <section className="py-12 bg-muted/30">
-        <div className="container max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-3xl font-bold mb-3">AI-Powered Resume Analysis</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Understand how ATS systems work and predict your job match score with AI
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <ATSEducationPanel />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              <JobMatchPanel />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      <MetricsPanel />
-      <SkillsGrid />
-      <ExperienceTimeline />
-      <ProjectsSection />
+      <HeroSection />
+      <StorySection />
+      <FeaturesSection />
+      <SocialProofSection />
+      <CTASection />
     </>
   );
 }
 
 const layouts: Record<Persona, () => JSX.Element> = {
-  recruiter: RecruiterLayout,
+  recruiter: LandingPageLayout, // Mapped to "Home"
   techLead: TechLeadLayout,
-  founder: FounderLayout,
+  founder: LandingPageLayout, // Fallback
   visitor: VisitorLayout,
   resumeMatcher: ResumeMatcherLayout
 };
 
 export default function Home() {
   const { persona, isTransitioning } = usePersona();
-  const Layout = layouts[persona];
+  const Layout = layouts[persona] || LandingPageLayout;
+  const isLandingPage = persona === 'recruiter' || persona === 'founder';
 
   return (
-    <div className="min-h-screen transition-colors duration-500" data-testid="home-page">
+    <div className="min-h-screen transition-colors duration-500 bg-slate-950" data-testid="home-page">
       <IdentitySelector />
-      <Hero />
+
+      {!isLandingPage && <ProfileHero />}
 
       <AnimatePresence mode="wait">
         <motion.main

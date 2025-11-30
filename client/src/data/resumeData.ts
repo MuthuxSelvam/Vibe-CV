@@ -3,12 +3,13 @@ import type { ResumeData } from "@shared/schema";
 export const resumeData: ResumeData = {
   name: "Muthu Selvam",
   title: "Final-year CSE Student & Code Enthusiast",
-  email: "muthu@example.com",
+  email: "muthuselvam2005ms@gmail.com",
   phone: "+1 (555) 123-4567",
-  location: "San Francisco, CA",
-  linkedin: "linkedin.com/in/muthuselvam",
-  github: "github.com/muthuselvam",
+  location: "India",
+  linkedin: "in.linkedin.com/in/muthu-selvam-5a63a1268",
+  github: "github.com/MuthuxSelvam",
   website: "muthuselvam.dev",
+  instagram: "www.instagram.com/mxthxselvam",
   summary: {
     default: "Final-year CSE student and code enthusiast who loves turning ideas into interactive experiences.",
     recruiter: "That's why I created VibeCV — a smart portfolio that adapts to each visitor and delivers the perfect first impression every time. I'm a results-driven CSE student with a passion for building high-impact solutions.",

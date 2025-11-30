@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { usePersona } from "@/context/PersonaContext";
 import { resumeData } from "@/data/resumeData";
 import { personaConfigs } from "@shared/schema";
-import { Mail, MapPin, Github, Linkedin, Globe, ArrowDown, FileText } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Globe, ArrowDown, FileText, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
@@ -176,21 +176,19 @@ export function Hero() {
               </a>
             </Button>
           )}
+          {resumeData.instagram && (
+            <Button variant="outline" size="icon" asChild className="rounded-full">
+              <a href={`https://${resumeData.instagram}`} target="_blank" rel="noopener noreferrer" data-testid="link-instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+            </Button>
+          )}
           <Button variant="outline" size="icon" asChild className="rounded-full">
             <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" title="Download Resume">
               <FileText className="w-5 h-5" />
             </a>
           </Button>
         </motion.div>
-
-        <motion.p
-          className="mt-6 text-sm text-muted-foreground italic"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-        >
-          Viewing as: <span className="font-medium">{config.tone}</span>
-        </motion.p>
       </motion.div>
 
       <motion.button
