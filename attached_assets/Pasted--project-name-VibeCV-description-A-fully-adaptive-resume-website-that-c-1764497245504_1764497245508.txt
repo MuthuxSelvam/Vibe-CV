@@ -1,0 +1,242 @@
+{
+  "project": {
+    "name": "VibeCV",
+    "description": "A fully adaptive resume website that changes layout, tone, visuals, and content based on viewer persona, with integrated ATS analysis and job-match prediction.",
+    "goal": "Build the world’s most interactive, intelligent, and personalized resume website."
+  },
+
+  "coreConcept": {
+    "personaSystem": "Website transforms based on who is viewing it: Recruiter, Tech Lead, Founder, Visitor.",
+    "adaptiveUI": "Tone, layout, animations, visuals, and content priorities dynamically adjust.",
+    "singleDataSource": "All sections of the site pull from one data.json file.",
+    "atsEducation": "Explains how ATS and AI resume screening works.",
+    "jobMatchPrediction": "User can upload/paste a Job Description and Resume → system shows match score and shortlist prediction.",
+    "viralHook": "A resume that changes based on the viewer + intelligently analyzes itself."
+  },
+
+  "workflow": {
+    "visitorFlow": [
+      "Visitor lands on hero section with prompt: 'Who are you?'",
+      "Visitor selects persona using Identity Selector (Recruiter, Tech Lead, Founder, Visitor)",
+      "Website animates and morphs into selected persona view",
+      "Different components, tones, and layouts load depending on persona",
+      "User optionally opens ATS/AI evaluation panel",
+      "User optionally uses Job Match Prediction by adding JD + resume",
+      "User receives match score, missing skills, and shortlist prediction",
+      "User can download PDF version in persona-specific style"
+    ]
+  },
+
+  "personas": {
+    "recruiter": {
+      "tone": "Professional, concise, ATS-friendly",
+      "priority": ["summary", "metrics", "skills", "experience", "certifications"],
+      "layout": "Clean, minimal, metric-rich",
+      "theme": "Light neutral"
+    },
+    "techLead": {
+      "tone": "Technical, direct, engineering-focused",
+      "priority": ["architecture", "codeSamples", "techStack", "problemSolving"],
+      "layout": "Dark mode, code-editor visuals",
+      "theme": "Dark grid"
+    },
+    "founder": {
+      "tone": "Story-driven, visionary, product-focused",
+      "priority": ["problem", "solution", "impact", "caseStudies"],
+      "layout": "Pitch-deck style storytelling",
+      "theme": "Soft gradient"
+    },
+    "visitor": {
+      "tone": "Friendly, casual, fun",
+      "priority": ["bio", "funFacts", "hobbies", "easterEggs"],
+      "layout": "Playful, creative, colorful",
+      "theme": "Vibrant animated"
+    }
+  },
+
+  "features": {
+    "identitySelector": {
+      "type": "Floating orb or button group",
+      "position": "Top-right",
+      "supportsDynamicSwitching": true
+    },
+
+    "componentSystem": {
+      "sharedComponents": [
+        "Hero",
+        "PersonaLayoutManager",
+        "SkillsGrid",
+        "MetricsPanel",
+        "CodeShowcase",
+        "ProjectCard",
+        "ArchitectureDiagram",
+        "ExperienceTimeline",
+        "SummaryToneSwitch",
+        "ATSAnalysisPanel",
+        "JobMatchPredictorPanel",
+        "Footer"
+      ]
+    },
+
+    "atsEducation": {
+      "title": "How ATS/AI Resume Screening Works",
+      "sections": {
+        "whatIsATS": "ATS reads, stores, filters, and ranks resumes.",
+        "aiScreening": "AI systems use NLP to understand context, not just keywords.",
+        "whyItMatters": "Your resume is often filtered by software before a human sees it."
+      },
+      "workflow": {
+        "parsing": "Extracts structured data: contact info, skills, experience, dates",
+        "keywordMatching": "Matches required keywords from the job description",
+        "semanticAnalysis": "AI checks contextual meaning and skill depth",
+        "filteringAndRanking": "Scores and ranks candidates; auto-filters apply"
+      }
+    },
+
+    "jobMatchPrediction": {
+      "description": "User uploads a job description + resume → VibeCV predicts match score and shortlist probability.",
+      "inputs": {
+        "jobDescription": "Text input or file upload",
+        "resume": "Text input or file upload"
+      },
+      "processingPipeline": {
+        "parseJD": "Extracts required skills, responsibilities, tools, seniority",
+        "parseResume": "Extracts skills, achievements, experience, titles",
+        "keywordMatch": "Counts exact and related keyword matches",
+        "semanticMatch": "Compares meaning using AI text embeddings",
+        "experienceMatch": "Matches seniority and years of experience",
+        "scoreWeights": {
+          "hardSkills": 0.45,
+          "softSkills": 0.15,
+          "experience": 0.20,
+          "keywordMatch": 0.10,
+          "semanticMatch": 0.10
+        },
+        "predictionCriteria": {
+          "likely": "Score >= 75 AND critical skills present",
+          "borderline": "Score 50-74 OR some skills missing",
+          "unlikely": "Score < 50 OR major gaps"
+        }
+      },
+      "outputs": [
+        "Match Score (0-100)",
+        "Shortlist Prediction",
+        "Matched Skills",
+        "Missing Skills",
+        "Experience Fit",
+        "Rewrite Recommendations"
+      ]
+    },
+
+    "pdfExport": {
+      "personaAware": true
+    },
+
+    "responsiveDesign": {
+      "mobileOptimized": true,
+      "tabletOptimized": true
+    },
+
+    "analytics": {
+      "trackPersonaSelection": true,
+      "trackJobMatchUsage": true
+    }
+  },
+
+  "technicalLogic": {
+    "dataModel": {
+      "summary": {
+        "default": "",
+        "recruiter": "",
+        "techLead": "",
+        "founder": "",
+        "visitor": ""
+      },
+      "skills": [],
+      "projects": [],
+      "experience": [],
+      "extras": {}
+    },
+
+    "personaConfig": {
+      "recruiter": {
+        "priority": ["summary", "metrics", "skills", "experience"],
+        "theme": "light"
+      },
+      "techLead": {
+        "priority": ["projects", "architecture", "code"],
+        "theme": "dark"
+      },
+      "founder": {
+        "priority": ["problem", "solution", "impact"],
+        "theme": "gradient"
+      },
+      "visitor": {
+        "priority": ["bio", "funFacts"],
+        "theme": "vibrant"
+      }
+    },
+
+    "atsParsingEngine": {
+      "steps": [
+        "Normalize text",
+        "Extract skills",
+        "Extract responsibilities",
+        "Extract job titles",
+        "Extract experience",
+        "Extract keywords"
+      ]
+    },
+
+    "semanticEngine": {
+      "method": "Embedding similarity",
+      "outputs": "Similarity score between JD and resume sentences"
+    },
+
+    "scoringEngine": {
+      "formula": "Weighted combination of skills, experience, keywords, semantics",
+      "prediction": ["likely", "borderline", "unlikely"]
+    }
+  },
+
+  "technicalStack": {
+    "frontend": "Next.js, React, TypeScript",
+    "styling": "Tailwind CSS",
+    "animations": "Framer Motion",
+    "stateManagement": "Zustand or React Context",
+    "codeHighlighting": "Shiki or Prism.js",
+    "optionalShaders": "Three.js for backgrounds",
+    "backend": "Vercel serverless (optional)",
+    "deployment": "Vercel"
+  },
+
+  "components": [
+    "Hero",
+    "IdentitySelector",
+    "PersonaLayoutManager",
+    "Summary",
+    "SkillsGrid",
+    "MetricsPanel",
+    "ProjectsSection",
+    "CodeShowcase",
+    "ArchitectureDiagram",
+    "ExperienceTimeline",
+    "ATSAnalysisPanel",
+    "JobMatchPredictorPanel",
+    "Footer"
+  ],
+
+  "animation": {
+    "entry": "Fade-in hero + floating identity orb",
+    "personaSwitch": "Layout morph, color theme shift, component reordering",
+    "componentLoad": "Staggered animations",
+    "backgroundChange": "Gradient or shader swap"
+  },
+
+  "advancedIdeas": {
+    "autoDetectPersona": "Detect recruiter bots or scroll behavior",
+    "aiToneRewrite": "Update tone automatically per persona",
+    "templateMode": "Allow others to fork VibeCV as their resume",
+    "multiLanguage": "Support EN and additional languages"
+  }
+}
