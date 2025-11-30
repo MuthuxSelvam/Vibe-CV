@@ -17,7 +17,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Get in Touch</h3>
             <div className="space-y-3">
-              <a 
+              <a
                 href={`mailto:${resumeData.email}`}
                 className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                 data-testid="link-footer-email"
@@ -26,7 +26,7 @@ export function Footer() {
                 {resumeData.email}
               </a>
               {resumeData.github && (
-                <a 
+                <a
                   href={`https://${resumeData.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -38,7 +38,7 @@ export function Footer() {
                 </a>
               )}
               {resumeData.linkedin && (
-                <a 
+                <a
                   href={`https://${resumeData.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -50,7 +50,7 @@ export function Footer() {
                 </a>
               )}
               {resumeData.website && (
-                <a 
+                <a
                   href={`https://${resumeData.website}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -81,15 +81,17 @@ export function Footer() {
                   Contact Me
                 </a>
               </Button>
-              <Button variant="outline" className="w-full gap-2" data-testid="button-download-pdf">
-                <Download className="w-4 h-4" />
-                Download PDF
+              <Button variant="outline" className="w-full gap-2" asChild data-testid="button-download-pdf">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <Download className="w-4 h-4" />
+                  Download PDF
+                </a>
               </Button>
             </div>
           </div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="pt-8 border-t text-center text-sm text-muted-foreground"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

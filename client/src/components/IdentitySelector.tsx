@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { usePersona } from "@/context/PersonaContext";
 import type { Persona } from "@shared/schema";
-import { Briefcase, Code2, Rocket, Sparkles } from "lucide-react";
+import { Briefcase, Code2, Rocket, Sparkles, Target } from "lucide-react";
 
 const personas: { id: Persona; label: string; icon: typeof Briefcase; description: string }[] = [
-  { id: "recruiter", label: "Recruiter", icon: Briefcase, description: "ATS-optimized view" },
+  { id: "recruiter", label: "Home", icon: Briefcase, description: "Professional overview" },
+  { id: "resumeMatcher", label: "Resume Matching Predictor", icon: Target, description: "AI-powered match analysis" },
   { id: "techLead", label: "Tech Lead", icon: Code2, description: "Technical deep-dive" },
-  { id: "founder", label: "Founder", icon: Rocket, description: "Product & impact" },
   { id: "visitor", label: "Visitor", icon: Sparkles, description: "Fun & personal" }
 ];
 
@@ -24,7 +24,7 @@ export function IdentitySelector() {
         {personas.map((p) => {
           const Icon = p.icon;
           const isActive = persona === p.id;
-          
+
           return (
             <motion.button
               key={p.id}
@@ -32,8 +32,8 @@ export function IdentitySelector() {
               disabled={isTransitioning}
               className={`
                 relative flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors
-                ${isActive 
-                  ? "text-primary-foreground" 
+                ${isActive
+                  ? "text-primary-foreground"
                   : "text-muted-foreground hover-elevate"
                 }
               `}

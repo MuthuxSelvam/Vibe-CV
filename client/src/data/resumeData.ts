@@ -1,20 +1,21 @@
 import type { ResumeData } from "@shared/schema";
 
 export const resumeData: ResumeData = {
-  name: "Alex Chen",
-  title: "Senior Full-Stack Engineer & Technical Architect",
-  email: "alex@example.com",
+  name: "Muthu Selvam",
+  title: "Final-year CSE Student & Code Enthusiast",
+  email: "muthu@example.com",
   phone: "+1 (555) 123-4567",
   location: "San Francisco, CA",
-  linkedin: "linkedin.com/in/alexchen",
-  github: "github.com/alexchen",
-  website: "alexchen.dev",
+  linkedin: "linkedin.com/in/muthuselvam",
+  github: "github.com/muthuselvam",
+  website: "muthuselvam.dev",
   summary: {
-    default: "Experienced software engineer with 8+ years building scalable web applications and leading engineering teams.",
-    recruiter: "Results-driven Senior Software Engineer with 8+ years of experience delivering high-impact solutions. Proven track record of reducing system latency by 40%, leading teams of 12+ engineers, and shipping products used by 2M+ users. Expertise in React, Node.js, AWS, and microservices architecture. Strong communicator with experience in cross-functional collaboration.",
-    techLead: "Passionate about building elegant, scalable systems. Deep experience with distributed architectures, event-driven design, and performance optimization. Built real-time data pipelines handling 100K+ events/sec. Love mentoring engineers and establishing best practices. Current focus: TypeScript, Rust, and cloud-native patterns.",
-    founder: "I believe technology should solve real human problems. Over 8 years, I've built products that transformed how people work - from a collaboration tool that saved teams 10 hours/week to an analytics platform that helped companies understand their users 10x faster. I thrive at the intersection of product thinking and technical excellence.",
-    visitor: "Hey there! I'm Alex - a code enthusiast who turns coffee into software. When I'm not architecting systems or debating tabs vs spaces (spaces, obviously), you'll find me hiking trails, experimenting with sourdough, or teaching my cat to high-five. I believe the best code is written with empathy and a good playlist."
+    default: "Final-year CSE student and code enthusiast who loves turning ideas into interactive experiences.",
+    recruiter: "That's why I created VibeCV — a smart portfolio that adapts to each visitor and delivers the perfect first impression every time. I'm a results-driven CSE student with a passion for building high-impact solutions.",
+    techLead: "Passionate about building elegant, scalable systems. Deep experience with distributed architectures, event-driven design, and performance optimization. Love mentoring engineers and establishing best practices.",
+    founder: "I believe technology should solve real human problems. I thrive at the intersection of product thinking and technical excellence, building products that transform how people work.",
+    visitor: "Hey there! I'm Muthu — a final-year CSE student and code enthusiast who loves turning ideas into interactive experiences. When I'm not building cool tech or exploring AI, I'm figuring out how resumes truly get shortlisted.",
+    resumeMatcher: "Upload a job description and let the AI analyze how well your resume matches the role. Get a detailed score and actionable recommendations."
   },
   skills: [
     { name: "TypeScript", category: "Languages", proficiency: 95 },
@@ -37,12 +38,12 @@ export const resumeData: ResumeData = {
     { name: "Team Leadership", category: "Soft Skills", proficiency: 88 }
   ],
   metrics: [
-    { label: "Years Experience", value: "8+", description: "Building production systems" },
-    { label: "Team Size Led", value: "12", description: "Engineers mentored & managed" },
-    { label: "Users Impacted", value: "2M+", description: "Across shipped products" },
+    { label: "Years Experience", value: "4+", description: "Academic & Personal Projects" },
+    { label: "Projects Built", value: "20+", description: "Full-stack applications" },
+    { label: "Users Impacted", value: "1K+", description: "Across deployed apps" },
     { label: "Performance Gain", value: "40%", description: "Average latency reduction" },
-    { label: "Code Reviews", value: "500+", description: "PRs reviewed annually" },
-    { label: "Open Source", value: "15K", description: "GitHub stars earned" }
+    { label: "Code Reviews", value: "100+", description: "PRs reviewed annually" },
+    { label: "Open Source", value: "500+", description: "GitHub contributions" }
   ],
   projects: [
     {
@@ -162,10 +163,10 @@ impl TimeWheel {
     {
       id: "1",
       company: "TechCorp Inc.",
-      role: "Staff Software Engineer",
-      startDate: "2021",
+      role: "Software Engineer Intern",
+      startDate: "2023",
       endDate: "Present",
-      description: "Leading platform engineering initiatives and mentoring a team of 8 engineers.",
+      description: "Contributing to platform engineering initiatives and learning from senior engineers.",
       achievements: [
         "Reduced API latency by 40% through caching strategies and query optimization",
         "Designed and implemented microservices architecture serving 2M+ users",
@@ -177,9 +178,9 @@ impl TimeWheel {
     {
       id: "2",
       company: "StartupXYZ",
-      role: "Senior Full-Stack Engineer",
-      startDate: "2018",
-      endDate: "2021",
+      role: "Full-Stack Developer Intern",
+      startDate: "2022",
+      endDate: "2023",
       description: "Core member of the founding engineering team, built the product from 0 to 1.",
       achievements: [
         "Built real-time collaboration features used by 50K+ daily active users",
@@ -188,26 +189,11 @@ impl TimeWheel {
         "Architected event-driven system handling 100K+ events/second"
       ],
       techStack: ["Python", "React", "PostgreSQL", "Redis", "Docker"]
-    },
-    {
-      id: "3",
-      company: "BigTech Corp",
-      role: "Software Engineer",
-      startDate: "2016",
-      endDate: "2018",
-      description: "Developed internal tools and customer-facing features for enterprise clients.",
-      achievements: [
-        "Built data visualization dashboard used by 500+ enterprise customers",
-        "Optimized database queries resulting in 3x performance improvement",
-        "Mentored 4 junior engineers and led technical interviews"
-      ],
-      techStack: ["Java", "Angular", "MySQL", "ElasticSearch"]
     }
   ],
   certifications: [
-    "AWS Solutions Architect Professional",
-    "Google Cloud Professional Data Engineer",
-    "Kubernetes Administrator (CKA)"
+    "AWS Certified Cloud Practitioner",
+    "Google Cloud Associate Cloud Engineer"
   ],
   funFacts: [
     { icon: "coffee", title: "Coffee Enthusiast", description: "3 cups minimum to function. Home-roasted beans are non-negotiable." },

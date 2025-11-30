@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { usePersona } from "@/context/PersonaContext";
 import { resumeData } from "@/data/resumeData";
 import { personaConfigs } from "@shared/schema";
-import { Mail, MapPin, Github, Linkedin, Globe, ArrowDown } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Globe, ArrowDown, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
@@ -22,6 +22,10 @@ const heroVariants = {
   visitor: {
     gradient: "from-amber-50 via-orange-50 to-rose-50",
     accent: "text-orange-500"
+  },
+  resumeMatcher: {
+    gradient: "from-purple-500 via-pink-500 to-purple-500",
+    accent: "text-white"
   }
 };
 
@@ -36,7 +40,7 @@ export function Hero() {
   };
 
   return (
-    <section 
+    <section
       className={`min-h-screen flex flex-col items-center justify-center relative overflow-hidden transition-colors duration-700 bg-gradient-to-br ${variant.gradient}`}
       data-testid="hero-section"
     >
@@ -110,13 +114,13 @@ export function Hero() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 
+            <h1
               className="text-5xl md:text-7xl font-bold mb-4 tracking-tight"
               data-testid="text-name"
             >
               {resumeData.name}
             </h1>
-            
+
             <p className={`text-xl md:text-2xl font-medium mb-6 ${variant.accent}`}>
               {resumeData.title}
             </p>
@@ -172,9 +176,14 @@ export function Hero() {
               </a>
             </Button>
           )}
+          <Button variant="outline" size="icon" asChild className="rounded-full">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" title="Download Resume">
+              <FileText className="w-5 h-5" />
+            </a>
+          </Button>
         </motion.div>
 
-        <motion.p 
+        <motion.p
           className="mt-6 text-sm text-muted-foreground italic"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

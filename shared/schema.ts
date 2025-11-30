@@ -19,9 +19,9 @@ export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
 // Persona types
-export type Persona = "recruiter" | "techLead" | "founder" | "visitor";
+export type Persona = "recruiter" | "techLead" | "founder" | "visitor" | "resumeMatcher";
 
-export const personaSchema = z.enum(["recruiter", "techLead", "founder", "visitor"]);
+export const personaSchema = z.enum(["recruiter", "techLead", "founder", "visitor", "resumeMatcher"]);
 
 export interface PersonaConfig {
   priority: string[];
@@ -49,6 +49,11 @@ export const personaConfigs: Record<Persona, PersonaConfig> = {
     priority: ["bio", "funFacts", "hobbies", "easterEggs"],
     theme: "vibrant",
     tone: "Friendly, casual, fun"
+  },
+  resumeMatcher: {
+    priority: ["jobMatch", "analysis", "recommendations"],
+    theme: "gradient",
+    tone: "Analytical, helpful, precise"
   }
 };
 
@@ -111,6 +116,7 @@ export interface ResumeData {
     techLead: string;
     founder: string;
     visitor: string;
+    resumeMatcher: string;
   };
   skills: Skill[];
   metrics: Metric[];

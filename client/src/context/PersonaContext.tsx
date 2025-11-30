@@ -24,9 +24,9 @@ export function PersonaProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.remove("persona-recruiter", "persona-techLead", "persona-founder", "persona-visitor");
+    root.classList.remove("persona-recruiter", "persona-techLead", "persona-visitor", "persona-founder", "persona-resumeMatcher");
     root.classList.add(`persona-${persona}`);
-    
+
     if (persona === "techLead") {
       root.classList.add("dark");
     } else {
