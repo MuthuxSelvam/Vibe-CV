@@ -30,20 +30,7 @@ const features = [
         iconBg: "bg-gradient-to-br from-purple-500/20 to-pink-500/20",
         border: "border-purple-500/20"
     },
-    {
-        icon: Sparkles,
-        title: "Crystal-Clean Glassmorphic UI",
-        description: "Your portfolio shouldn't feel corporate or boring.",
-        details: [
-            "Frosted glass layers with depth",
-            "3D scenes and motion effects",
-            "Soft gradients & hover lighting",
-            "Fluid transitions throughout"
-        ],
-        gradient: "from-pink-500 to-rose-500",
-        iconBg: "bg-gradient-to-br from-pink-500/20 to-rose-500/20",
-        border: "border-pink-500/20"
-    },
+
     {
         icon: MessageSquare,
         title: "Smart Storytelling Engine",
