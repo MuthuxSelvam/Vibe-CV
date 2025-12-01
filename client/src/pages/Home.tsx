@@ -75,7 +75,7 @@ export default function Home() {
     <div className="min-h-screen transition-colors duration-500 bg-slate-950" data-testid="home-page">
       <IdentitySelector />
 
-      {!isLandingPage && <ProfileHero />}
+      {!isLandingPage && persona !== 'resumeMatcher' && <ProfileHero />}
 
       <AnimatePresence mode="wait">
         <motion.main
