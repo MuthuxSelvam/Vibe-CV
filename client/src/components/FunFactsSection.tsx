@@ -38,9 +38,9 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
+  visible: {
+    opacity: 1,
+    y: 0,
     scale: 1,
     transition: { type: "spring", bounce: 0.4 }
   }
@@ -51,8 +51,32 @@ export function FunFactsSection() {
   const hobbies = resumeData.hobbies || [];
 
   return (
-    <section className="py-16" data-testid="fun-facts-section">
-      <div className="container max-w-5xl mx-auto px-6">
+    <section className="py-16 relative overflow-hidden" data-testid="fun-facts-section">
+      {/* Particle effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-orange-400 to-pink-400"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`
+            }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.2, 0.6, 0.2],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container max-w-5xl mx-auto px-6 relative z-10">
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -77,15 +101,15 @@ export function FunFactsSection() {
           {funFacts.map((fact, index) => {
             const Icon = iconMap[fact.icon] || Sparkles;
             const color = colorPalette[index % colorPalette.length];
-            
+
             return (
               <motion.div key={index} variants={itemVariants}>
-                <Card 
+                <Card
                   className={`h-full hover-elevate group cursor-default ${color.bg} ${color.border}`}
                   data-testid={`fun-fact-card-${index}`}
                 >
                   <CardContent className="pt-6">
-                    <motion.div 
+                    <motion.div
                       className={`w-12 h-12 rounded-xl ${color.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
                       whileHover={{ rotate: [0, -10, 10, 0] }}
                     >
@@ -124,8 +148,8 @@ export function FunFactsSection() {
                     whileHover={{ scale: 1.1, rotate: [-2, 2, 0] }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Badge 
-                      variant="outline" 
+                    <Badge
+                      variant="outline"
                       className={`px-4 py-1.5 text-sm ${color.bg} ${color.border} ${color.text}`}
                     >
                       {hobby}
@@ -146,7 +170,7 @@ export function FunFactsSection() {
         >
           <motion.div
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-500/10 via-pink-500/10 to-orange-500/10 border border-violet-500/20"
-            animate={{ 
+            animate={{
               boxShadow: [
                 "0 0 20px rgba(139, 92, 246, 0.1)",
                 "0 0 30px rgba(236, 72, 153, 0.15)",

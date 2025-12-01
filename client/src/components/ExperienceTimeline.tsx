@@ -22,21 +22,43 @@ export function ExperienceTimeline() {
   const { persona } = usePersona();
   const experiences = resumeData.experience;
 
-  if (persona === "visitor") {
-    return null;
-  }
-
   return (
-    <section className="py-16" data-testid="experience-section">
-      <div className="container max-w-4xl mx-auto px-6">
+    <section className="py-16 relative overflow-hidden" data-testid="experience-section">
+      {/* Particle effects for visitor/About Me persona */}
+      {persona === "visitor" && (
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-orange-400 to-pink-400"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`
+              }}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.2, 0.6, 0.2],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      <div className="container max-w-4xl mx-auto px-6 relative z-10">
         <motion.h2
           className="text-3xl md:text-4xl font-bold mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          {persona === "recruiter" ? "Professional Experience" : 
-           persona === "techLead" ? "Engineering Journey" : "Career Path"}
+          {persona === "recruiter" ? "Professional Experience" :
+            persona === "techLead" ? "Engineering Journey" : "Career Path"}
         </motion.h2>
 
         <motion.div

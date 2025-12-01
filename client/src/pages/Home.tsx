@@ -33,6 +33,7 @@ function TechLeadLayout() {
 function VisitorLayout() {
   return (
     <>
+      <ExperienceTimeline />
       <FunFactsSection />
       <SkillsGrid />
       <ProjectsSection />
