@@ -163,6 +163,20 @@ impl TimeWheel {
   experience: [
     {
       id: "1",
+      company: "Dexian",
+      role: "AI Python Developer Intern",
+      startDate: "Oct 2025",
+      endDate: "Present",
+      description: "Building a Python + Flask platform with REST APIs, MySQL data workflows, and secure authentication for a Government of Madhya Pradesh project.",
+      achievements: [
+        "Building a Python + Flask platform with REST APIs, MySQL data workflows, and secure authentication for a Government of Madhya Pradesh project",
+        "Developing NLP / Chatbot features for automated assistance and smart user interactions using AI/ML models",
+        "Supporting testing, debugging, deployment, and Agile-based development with Git to ensure scalable backend architecture"
+      ],
+      techStack: ["Python", "Flask", "MySQL", "REST APIs", "NLP", "AI/ML", "Git"]
+    },
+    {
+      id: "2",
       company: "TechCorp Inc.",
       role: "Software Engineer Intern",
       startDate: "2023",
@@ -177,7 +191,7 @@ impl TimeWheel {
       techStack: ["TypeScript", "React", "Node.js", "AWS", "Kubernetes"]
     },
     {
-      id: "2",
+      id: "3",
       company: "StartupXYZ",
       role: "Full-Stack Developer Intern",
       startDate: "2022",

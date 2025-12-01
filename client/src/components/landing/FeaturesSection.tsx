@@ -9,12 +9,12 @@ const features = [
         details: [
             "Recruiter View: Results, skills, clarity",
             "Tech Lead View: Architecture, code, stack",
-            "Visitor View: Story, journey, personality",
+            "About Me View: Story, journey, personality",
             "Resume Match View: AI-powered job matching"
         ],
-        gradient: "from-blue-500 to-cyan-500",
-        iconBg: "bg-gradient-to-br from-blue-500/20 to-cyan-500/20",
-        border: "border-blue-500/20"
+        gradient: "from-blue-400 to-indigo-400",
+        iconBg: "bg-blue-500/10",
+        border: "border-blue-500/10"
     },
     {
         icon: Brain,
@@ -26,11 +26,10 @@ const features = [
             "Experience fit & Semantic similarity",
             "ATS readiness"
         ],
-        gradient: "from-purple-500 to-pink-500",
-        iconBg: "bg-gradient-to-br from-purple-500/20 to-pink-500/20",
-        border: "border-purple-500/20"
+        gradient: "from-purple-400 to-violet-400",
+        iconBg: "bg-purple-500/10",
+        border: "border-purple-500/10"
     },
-
     {
         icon: MessageSquare,
         title: "Smart Storytelling Engine",
@@ -39,11 +38,11 @@ const features = [
             "Professional (Recruiter)",
             "Technical (Tech Lead)",
             "Product-thinking (Founder)",
-            "Simple & Human (Visitor)"
+            "Simple & Human (About Me)"
         ],
-        gradient: "from-orange-500 to-amber-500",
-        iconBg: "bg-gradient-to-br from-orange-500/20 to-amber-500/20",
-        border: "border-orange-500/20"
+        gradient: "from-indigo-400 to-purple-400",
+        iconBg: "bg-indigo-500/10",
+        border: "border-indigo-500/10"
     },
     {
         icon: Zap,
@@ -52,12 +51,12 @@ const features = [
         details: [
             "Recruiters → achievements + metrics",
             "Tech leads → architecture + repos",
-            "Visitors → personality + journey",
+            "About Me → personality + journey",
             "ATS → skill density + keywords"
         ],
-        gradient: "from-emerald-500 to-teal-500",
-        iconBg: "bg-gradient-to-br from-emerald-500/20 to-teal-500/20",
-        border: "border-emerald-500/20"
+        gradient: "from-violet-400 to-fuchsia-400",
+        iconBg: "bg-violet-500/10",
+        border: "border-violet-500/10"
     }
 ];
 

@@ -7,7 +7,7 @@ const personas: { id: Persona; label: string; icon: typeof Briefcase; descriptio
   { id: "recruiter", label: "Home", icon: Briefcase, description: "Professional overview" },
   { id: "resumeMatcher", label: "Resume Matching Predictor", icon: Target, description: "AI-powered match analysis" },
   { id: "techLead", label: "Tech Lead", icon: Code2, description: "Technical deep-dive" },
-  { id: "visitor", label: "Visitor", icon: Sparkles, description: "Fun & personal" }
+  { id: "visitor", label: "About Me", icon: Sparkles, description: "Fun & personal" }
 ];
 
 export function IdentitySelector() {
